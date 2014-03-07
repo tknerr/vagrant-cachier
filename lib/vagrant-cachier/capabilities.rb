@@ -21,6 +21,11 @@ module VagrantPlugins
         Cap::Linux::ChefFileCachePath
       end
 
+      guest_capability 'linux', 'vagrant_omnibus' do
+        require_relative 'cap/linux/vagrant_omnibus'
+        Cap::Linux::VagrantOmnibus
+      end
+
       guest_capability 'linux', 'npm_cache_dir' do
         require_relative 'cap/linux/npm_cache_dir'
         Cap::Linux::NpmCacheDir

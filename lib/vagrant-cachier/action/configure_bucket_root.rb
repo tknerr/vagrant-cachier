@@ -12,9 +12,11 @@ module VagrantPlugins
         def call(env)
           @env = env
 
+          puts "xxx - action: configure bucket root"
           if !env[:cache_buckets_folder_configured] && env[:machine].config.cache.enabled?
             setup_buckets_folder
             env[:cache_buckets_folder_configured] = true
+            puts "xxx - action: buckets root folder set up!"
           end
 
           @app.call env
